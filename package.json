@@ -1,0 +1,25 @@
+{
+	"name": "serialbinarylogger",
+	"version": "1.0.0",
+	"description": "Serial binnary data logger",
+	"author": "@inrixia",
+	"license": "ISC",
+	"scripts": {
+		"prep": "npm install && npm run build",
+		"prestart": "tsc",
+		"build": "tsc && pkg ./dist/serial.js --out-path=./build -t latest-linux,latest-mac,latest-win --compress GZip",
+		"buildLinux": "tsc && pkg ./dist/serial.js --out-path=./build -t latest-linux",
+		"buildMac": "tsc && pkg ./dist/serial.js --out-path=./build -t latest-mac",
+		"buildWin": "tsc && pkg ./dist/serial.js --out-path=./build -t latest-win"
+	},
+	"dependencies": {
+		"@types/args": "^5.0.0",
+		"args": "^5.0.3",
+		"serialport": "^10.4.0"
+	},
+	"devDependencies": {
+		"@types/node": "^18.7.8",
+		"pkg": "^5.8.0",
+		"typescript": "^4.7.4"
+	}
+}
